@@ -1,0 +1,18 @@
+/*
+Enter your query here.
+Please append a semicolon ";" at the end of the query and enter your query in a single line to avoid error.
+*/
+SELECT *
+FROM (SELECT CITY, LENGTH(CITY)
+FROM STATION
+WHERE LENGTH(CITY) = (SELECT MIN(LENGTH(CITY))
+FROM STATION)
+ORDER BY CITY)
+WHERE ROWNUM <=1;
+SELECT *
+FROM (SELECT CITY, LENGTH(CITY)
+FROM STATION
+WHERE LENGTH(CITY) = (SELECT MAX(LENGTH(CITY))
+FROM STATION)
+ORDER BY CITY)
+WHERE ROWNUM <=1;
